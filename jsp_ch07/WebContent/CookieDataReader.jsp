@@ -10,3 +10,4 @@
 	NAME 쿠키 데이터의 값은? ${cookie.NAME.value}
 </body>
 </html>
+<!-- hi -->
