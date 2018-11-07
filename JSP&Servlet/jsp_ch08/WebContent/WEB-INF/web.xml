@@ -9,4 +9,13 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  <servlet>
+  	<servlet-name>pinfo-servlet</servlet-name>
+  	<servlet-class>mall.PersonalInfoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>pinfo-servlet</servlet-name>
+  	<url-pattern>/pinfo</url-pattern>
+  </servlet-mapping>
 </web-app>
