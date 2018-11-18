@@ -15,5 +15,6 @@
 * C/C++
 * 자료구조, 알고리즘 
 * HTML5 & CSS3 & JavaScript
-* Raspberry Pi
+* Node.js express MongoDB
+* Raspberry Pi & Arduino
 * DataBase(My SQL)
