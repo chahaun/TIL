@@ -4,15 +4,14 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>최대값 구하기</title>
+<title>구내식당</title>
 </head>
 <body>
-	최대값:
-	<c:if test="${param.NUM1 - param.NUM2 >= 0}">
-		${param.NUM1 }
-	</c:if>
-	<c:if test="${param.NUM1 - param.NUM2 < 0}">
-		${param.NUM2 }
-	</c:if>
+	<h3>오늘의 점심 메뉴입니다</h3>
+	<ul>
+		<c:forEach var="dish" items="${MENU }">
+			<li>${dish }</li>
+		</c:forEach>
+	</ul>
 </body>
 </html>

@@ -4,15 +4,11 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>최대값 구하기</title>
+<title>메아리</title>
 </head>
 <body>
-	최대값:
-	<c:if test="${param.NUM1 - param.NUM2 >= 0}">
-		${param.NUM1 }
-	</c:if>
-	<c:if test="${param.NUM1 - param.NUM2 < 0}">
-		${param.NUM2 }
-	</c:if>
+	<c:forEach var="cnt" begin="1" end="5">
+		<FONT size=${cnt }>야호~</FONT> <br>
+	</c:forEach>
 </body>
 </html>

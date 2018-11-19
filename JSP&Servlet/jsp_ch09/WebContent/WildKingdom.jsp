@@ -4,15 +4,13 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>최대값 구하기</title>
+<title>동물의 왕국</title>
 </head>
 <body>
-	최대값:
-	<c:if test="${param.NUM1 - param.NUM2 >= 0}">
-		${param.NUM1 }
-	</c:if>
-	<c:if test="${param.NUM1 - param.NUM2 < 0}">
-		${param.NUM2 }
-	</c:if>
+	사자의 생일잔치에 누가 왔을까요?<br><br>
+	<c:set var="guests" value="토끼^^거북이~~사슴"/>
+	<c:forTokens var="animal" items="${guests}" delims="^~">
+		${animal }<br>
+	</c:forTokens>
 </body>
 </html>
