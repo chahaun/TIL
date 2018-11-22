@@ -13,7 +13,7 @@
 * 임베디드 여러 프로그램
 * Linux
 * C/C++
-* 자료구조, 알고리즘 
+* 자료구조, 알고리즘(백준)
 * HTML5 & CSS3 & JavaScript
 * Node.js express MongoDB
 * Raspberry Pi & Arduino
