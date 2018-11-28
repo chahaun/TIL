@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%@taglib prefix="util" tagdir="/WEB-INF/tags" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +10,7 @@
 </head>
 <body>
 	<h3>최대값 구하기</h3>
-	<util:max num1="${param.NUM1 }" num2="${param.NUM2 }" />
-	최대값: ${maximum}
+	<util:max var="MAX" num1="77" num2="11" />
+	최대값: ${MAX}
 </body>
 </html>
