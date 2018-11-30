@@ -15,6 +15,6 @@
 * C/C++
 * 자료구조, 알고리즘(백준)
 * HTML5 & CSS3 & JavaScript
-* Node.js express MongoDB
+* Node.js express MongoDB(NoSQL)
 * Raspberry Pi & Arduino
 * DataBase(My SQL)
