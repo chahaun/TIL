@@ -27,4 +27,30 @@
 			<type>java.lang.String</type>
 		</attribute>
 	</tag>
+	<tag>
+		<name>newMin</name>
+		<tag-class>tool.MinimumTag</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<name>num1</name>
+			<type>java.lang.Integer</type>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>num2</name>
+			<type>java.lang.Integer</type>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>var</name>
+			<type>java.lang.String</type>
+			<required>true</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+		<variable>
+			<name-from-attribute>var</name-from-attribute>
+			<variable-class>java.lang.Integer</variable-class>
+			<scope>AT_END</scope>
+		</variable>
+	</tag>
 </taglib>
