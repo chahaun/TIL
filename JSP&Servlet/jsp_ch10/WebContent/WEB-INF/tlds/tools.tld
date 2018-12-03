@@ -1,0 +1,30 @@
+<taglib xmlns="http://java.sun.com/xml/ns/javaee" version="2.1">
+	<tlib-version>1.0</tlib-version>
+	<short-name>tool</short-name>
+	<tag>
+		<name>starLine</name>
+		<tag-class>tool.StartLineTag</tag-class>
+		<body-content>empty</body-content>
+	</tag>
+	<tag>
+		<name>newLine</name>
+		<tag-class>tool.NewLineTag</tag-class>
+		<body-content>empty</body-content>
+		<dynamic-attributes>
+			true
+		</dynamic-attributes>
+	</tag>
+	<tag>
+		<name>box</name>
+		<tag-class>tool.BoxTag</tag-class>
+		<body-content>scriptless</body-content>
+		<attribute>
+			<name>oldWord</name>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<name>newWord</name>
+			<type>java.lang.String</type>
+		</attribute>
+	</tag>
+</taglib>
