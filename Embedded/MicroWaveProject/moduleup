@@ -1,0 +1,11 @@
+#!/bin/bash
+
+insmod fpga_fnd_driver.ko
+insmod fpga_text_lcd_driver.ko
+insmod fpga_buzzer_driver.ko
+insmod fpga_step_motor_driver.ko
+
+mknod /dev/fpga_fnd_driver c 261 0
+mknod /dev/fpga_text_lcd_driver c 263 0
+mknod /dev/fpga_buzzer_driver c 264 0
+mknod /dev/fpga_step_motor_driver c 267 0
