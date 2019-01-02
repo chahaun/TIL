@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  .timeline
+  div.timeline
     if user
       div
         form#twit-form(action='/post' method='post' enctype='multipart/form-data')
@@ -13,7 +13,7 @@ block content
           div
             label#img-label(for='img') 사진 업로드
             input#img(type='file' accept='image/*')
-            button#twit-btn.btn(type='submit') 짹짹
+            button#twit-btn.btn(type='submit') 보내기
     .twits
       form#hashtag-form(action='/post/hashtag')
         input(type='text' name='hashtag' placeholder='태그 검색')

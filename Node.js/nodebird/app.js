@@ -7,8 +7,10 @@ const flash = require('connect-flash'); // passport를 이용해 로그인 구�
 require('dotenv').config();     // 비밀키가 .env파일에 있는데 dotenv가 그 파일을 읽어 process.env 객체에 넣는다
 
 const pageRouter = require('./routes/page');  // 페이지 관련 라우터
+const { sequelize } = require('./models');  // 모델과 서버를 연결
 
 const app = express(); // 익스프레스를 사용
+sequelize.sync();  // 모델 싱크작업
 
 app.set('views', path.join(__dirname, 'views'));  // 템플릿 파일들이 위치한 폴더를 views로 지정
 app.set('view engine', 'pug');   // 템플릿 엔진은 pug를 사용
