@@ -9,6 +9,8 @@ require('dotenv').config();     // 비밀키가 .env파일에 있는데 dotenv�
 
 const pageRouter = require('./routes/page');  // 페이지 관련 라우터
 const authRouter = require('./routes/auth');  // 카카오 인증페이지 라우터
+const postRouter = require('./routes/post');  // 이미지업로드, 게시글업로드, 해시태그 검색 부분 라우터
+const userRouter = require('./routes/user');  // 팔로우 관련 라우터
 const { sequelize } = require('./models');  // 모델과 서버를 연결
 const passportConfig = require('./passport'); // passport 폴더 내 index.js 불러옴
 
@@ -23,6 +25,7 @@ app.set('port', process.env.PORT || 8001); // 지정된 포트가 env에 있으�
 // 미들웨어 구성
 app.use(morgan('dev')); // 요청에 대한 정보를 콘솔에 기록
 app.use(express.static(path.join(__dirname, 'public')));    // 정적 파일들이 담긴 폴더위치를 지정. public으로 지정한다
+app.use('/img', express.static(path.join(__dirname, 'uploads')));  // 업로드한 이미지를 제공하는 폴더를 /img 에 대해서 라우터설정
 app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 app.use(cookieParser(process.env.COOKIE_SECRET));   // .env 파일의 COOKIE_SECRET에 대한 쿠키 값을 얻어온다.
@@ -40,6 +43,8 @@ app.use(passport.initialize()); // 요청(req객체)에 passport설정을 심는
 app.use(passport.session()); // req.session객체에 passport 정보를 저장한다. 그러므로 세션 뒤에 위치한다.
 app.use('/', pageRouter);   // 주소가 '/'로 시작하면 page.js를 호출
 app.use('/auth', authRouter); // 주소가 '/auth'로 시작하는 카카오로그인이며 auth.js 호출
+app.use('/post', postRouter); // /post에 대해 post.js 호출
+app.use('/user', userRouter); // /user에 대해 user.js 호출
 
 // 라우터 이후에 404 에러 처리
 app.use((req, res, next) => {
