@@ -51,4 +51,13 @@ router.get('/logout', isLoggedIn, (req, res) => {   // 로그인 상태이면서
     req.session.destroy();  // 세션을 끊는다. req.session 객체의 내용을 제거하는 것이다.
     res.redirect('/');  // 이후 루트페이지로 이동
 });
+
+router.get('/kakao', passport.authenticate('kakao')); // 카카오 로그인 창으로 리다이렉트를 하고, 결과를 callback으로 받는다.
+
+router.get('/kakao/callback', passport.authenticate('kakao', {  // 받은 결과를 처리한다.
+    failureRedirect: '/',  // 로그인을 실패했을 때 루트페이지로 가도록 설정한다
+}), (req, res) => { // 로그인에 성공했을때
+    res.redirect('/');   // 성공했다면 루트페이지로 가도록 설정한다
+});
+
 module.exports = router;

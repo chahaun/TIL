@@ -8,6 +8,7 @@ const passport = require('passport');
 require('dotenv').config();     // 비밀키가 .env파일에 있는데 dotenv가 그 파일을 읽어 process.env 객체에 넣는다
 
 const pageRouter = require('./routes/page');  // 페이지 관련 라우터
+const authRouter = require('./routes/auth');  // 카카오 인증페이지 라우터
 const { sequelize } = require('./models');  // 모델과 서버를 연결
 const passportConfig = require('./passport'); // passport 폴더 내 index.js 불러옴
 
@@ -38,6 +39,7 @@ app.use(flash());      // passport의 flash(일회성 메시지 출력기능) �
 app.use(passport.initialize()); // 요청(req객체)에 passport설정을 심는다
 app.use(passport.session()); // req.session객체에 passport 정보를 저장한다. 그러므로 세션 뒤에 위치한다.
 app.use('/', pageRouter);   // 주소가 '/'로 시작하면 page.js를 호출
+app.use('/auth', authRouter); // 주소가 '/auth'로 시작하는 카카오로그인이며 auth.js 호출
 
 // 라우터 이후에 404 에러 처리
 app.use((req, res, next) => {
