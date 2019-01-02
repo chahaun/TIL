@@ -4,13 +4,16 @@ const morgan = require('morgan');
 const path = require('path');
 const session = require('express-session');
 const flash = require('connect-flash'); // passport를 이용해 로그인 구현할 때 일회성 메시지 표현(에러메시지 등)
+const passport = require('passport');
 require('dotenv').config();     // 비밀키가 .env파일에 있는데 dotenv가 그 파일을 읽어 process.env 객체에 넣는다
 
 const pageRouter = require('./routes/page');  // 페이지 관련 라우터
 const { sequelize } = require('./models');  // 모델과 서버를 연결
+const passportConfig = require('./passport'); // passport 폴더 내 index.js 불러옴
 
 const app = express(); // 익스프레스를 사용
 sequelize.sync();  // 모델 싱크작업
+passportConfig(passport);  // 모듈과 폴더 연결
 
 app.set('views', path.join(__dirname, 'views'));  // 템플릿 파일들이 위치한 폴더를 views로 지정
 app.set('view engine', 'pug');   // 템플릿 엔진은 pug를 사용
@@ -32,6 +35,8 @@ app.use(session({
     },
 }));
 app.use(flash());      // passport의 flash(일회성 메시지 출력기능) 사용
+app.use(passport.initialize()); // 요청(req객체)에 passport설정을 심는다
+app.use(passport.session()); // req.session객체에 passport 정보를 저장한다. 그러므로 세션 뒤에 위치한다.
 app.use('/', pageRouter);   // 주소가 '/'로 시작하면 page.js를 호출
 
 // 라우터 이후에 404 에러 처리
