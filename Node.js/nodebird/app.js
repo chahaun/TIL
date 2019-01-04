@@ -8,7 +8,7 @@ const passport = require('passport');
 require('dotenv').config();     // 비밀키가 .env파일에 있는데 dotenv가 그 파일을 읽어 process.env 객체에 넣는다
 
 const pageRouter = require('./routes/page');  // 페이지 관련 라우터
-const authRouter = require('./routes/auth');  // 카카오 인증페이지 라우터
+const authRouter = require('./routes/auth');  // 로컬로그인 및 카카오로그인 인증페이지 라우터
 const postRouter = require('./routes/post');  // 이미지업로드, 게시글업로드, 해시태그 검색 부분 라우터
 const userRouter = require('./routes/user');  // 팔로우 관련 라우터
 const { sequelize } = require('./models');  // 모델과 서버를 연결
